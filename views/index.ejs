@@ -20,22 +20,19 @@
 
 
 <body class="body">
-  <div id="w-node-292a394fb032-423a5af9" class="div-block">
-    <div id="w-node-c6f0519d7e77-423a5af9">
-      <a href="#Home" class="button-3 w-button">Button Text</a>
-    </div>
-    <div id="w-node-79251dbe9869-423a5af9">
-      <a href="#" class="button-2 w-button">Button Text</a>
-    </div>
-    <div id="w-node-b3ac15aff849-423a5af9">
-      <a href="#" class="button w-button">Button Text</a>
-    </div>
+
+  <div class="block-positioner" id="page1">
+  <div  class="div-block">
+
+    <a class="w-button" id="buton1" href="#page1">Home</a>
+    <a class="w-button" id="buton2" href="#page2">Phones</a>
+    <a class="w-button" id="buton3" href="#page3">Contact</a>
+
   </div>
-  <div id="w-node-7b0882571601-423a5af9" class="div-block-2">
-    <div></div>
-  </div>
-  <div id="w-node-bf1fd7720cdf-423a5af9" class="mainHolder">
-    <section id="call-to-action" class="call-to-action">
+    </div>
+    <div  class="mainHolder3">
+    </div>
+  <div  class="mainHolder" id="page2">
       <div class="centered-container ">
         <h2>Choose your phone:</h2>
         <p>
@@ -54,16 +51,16 @@
       </section>
       <div class="phoneCard">
         <div class="grid-item">
-
         </div>
         <div class="phoneData">
-
         </div>
-
-
       </div>
     </div>
+      <div id="page3" class="mainHolder2">
+      </div>
+
     <script type="text/javascript">
+
       var test = <%-JSON.stringify(phones)%>;
       console.log(test);
      console.log(test[0].phoneName);
@@ -71,10 +68,35 @@
      var vsebina = "";
 
      for(var i=0;i<test.length;i++) {
-       vsebina += "<button class='phoneOption' type='button' name='button'>"+test[i].phoneName+"</button>"
+       vsebina += "<button class='phoneOption' type='button' name="+i+" onclick='getVsebina(this)'>"+test[i].phoneName+"</button>"
 
     }
     $(".dropdown-content").append(vsebina);
+
+    function getVsebina (x) {
+       $( ".phoneData" ).empty();
+       $( ".grid-item" ).empty();
+      console.log(x.name);
+        var infoo = "";
+        for (var i=0;i<test[x.name].fixTypes.length;i++){
+        infoo += "<p>"+test[x.name].fixTypes[i]+":"+test[x.name].phonePrice[i]+"</p>"
+      }
+      $(".grid-item").css("background-image", "url('"+test[x.name].phonePic+"')");
+
+      $(".phoneData").append(infoo);
+    }
+
+    $(document).ready(function() {
+    $("#button2").click(function() {
+      $("body,html").animate(
+        {
+          scrollTop: $("#page2").offset().bottom
+        },
+        800 //speed
+      );
+    });
+  });
+
 
 
 
