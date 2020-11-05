@@ -25,9 +25,9 @@
   <div class="block-positioner" id="page1">
   <div  class="div-block">
     <img id="logo" src="Asset 8.png" alt="">
-    <a  class="navButton" id="buton1" href="#page1">Home</a>
-    <a  class="navButton" id="buton2" href="#page2">Phones</a>
-    <a  class="navButton" id="buton3" href="#page3">Contact</a>
+    <a  class="navButton" id="buton1" href="#page1">Domov</a>
+    <a  class="navButton" id="buton2" href="#page2">Naprave</a>
+    <a  class="navButton" id="buton3" href="#page3">Kontakt</a>
 
   </div>
     </div>
@@ -42,32 +42,139 @@
     </div>
   <div  class="mainHolder" id="page2">
       <div class="centered-container ">
-        <h2>Choose your phone:</h2>
-        <p>
-          This section uses a <strong>container</strong>
-          element to ensure the content looks right on every device. It’s centered with the class “Centered Container.”
-        </p>
         <div class="div-block-3">
            <div class="dropdown">
-       <button class="dropbtn">Dropdown &darr; </button>
+       <button class="dropbtn">Telefoni</button>
+       <button class="dropbtn_2">Tablice</button>
        <div class="dropdown-content">
-
        </div>
      </div>
          </div>
         </div>
-      </section>
       <div class="phoneCard">
         <div class="grid-item">
+
         </div>
         <div class="phoneData">
+          <h1> iPhone 12 </h1>
+          <p>Menjava stekla : 50 €</p><br>
+          <p>Menjava baterije : 100 €</p>
+
+  	      <button id='narociPopravilo' class="btn-two" type='button' name='Naroci' onclick='tester2()'>Naroči popravilo</button>
         </div>
       </div>
     </div>
+    <!-- Trigger/Open The Modal -->
+<!-- <button id="myBtn">Open Modal</button> -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+  <span class="close">&times;</span>
+  <div class="narociloInfo">
+    <div class="grid-item2">
+
+    </div>
+    <div class="phoneData2">
+
+    </div>
+  </div>
+
+  <form id="narociloForm"  action="/" method="post">
+  <h1>Naročilo na popravilo</h1>
+<input type="radio" id="dostavaOsebno" name="gender" value="male">
+<label for="male">Napravo bom prinesel v poslovalnico</label><br>
+<input type="radio" id="dostavaPosta" name="gender" value="female">
+<label for="female">Napravo bom poslal po pošti</label><br>
+<div>
+  <label class="formLabel" for="fname">Ime:</label>
+  <input class="formInput" type="text" id="fname" name="fname">
+</div>
+<div>
+  <label class="formLabel" for="lname">Priimek:</label>
+  <input class="formInput" type="text" id="lname" name="lname">
+</div><br>
+<div>
+  <label class="formLabel" for="phoneNum">Telefonska številka:</label>
+  <input class="formInput" type="text" id="phoneNum" name="phoneNum"><br>
+  </div><div>
+  <label class="formLabel" for="email">Elektronski naslov:</label>
+  <input class="formInput" type="email" id="email" name="email"><br>
+  </div>  <br>
+  <div>
+    <label class="formLabel" for="address">Ulica in hišna številka</label>
+    <input class="formInput" type="text" id="address" name="address"><br>
+  </div>
+  <div class="">
+    <label class="formLabel" for="city">Kraj</label><br>
+    <input class="formInput" type="text" id="city" name="city" placeholder="Ljubljana"><br>
+  </div> <br>
+  <div class="">
+    <label class="formLabel" for="zip">Poštna številka</label><br>
+    <input class="formInput" type="number" id="zip" name="zip" placeholder="1000"><br>
+  </div>
+
+
+
+<input type="submit" value="Add">
+</form>
+
+</div>
+
+</div>
       <div id="page3" class="mainHolder2">
       </div>
 
+
     <script type="text/javascript">
+
+    $('#narociloForm').click(function() {
+      var formPart1 = "";
+   if($('#dostavaOsebno').is(':checked')) {
+     // Osebna dostava
+    formPart1 += ""
+  }
+   else {
+     //Dostava po pošti
+
+    }
+
+});
+
+    function tester2 () {
+     console.log("TESTSTTSST");
+     modal.style.display = "block";
+    };
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("narociPopravilo");
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+      // $("#narociPopravilo").click(function() {
+      //
+      //   console.log("TESTETST");
+      //   modal.style.display = "block";
+      //
+      // });
+
+  // When the user clicks on the button, open the modal
+
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
       var test = <%-JSON.stringify(phones)%>;
       console.log(test);
@@ -76,7 +183,7 @@
      var vsebina = "";
 
      for(var i=0;i<test.length;i++) {
-       vsebina += "<button class='phoneOption' type='button' name="+i+" onclick='getVsebina(this)'>"+test[i].phoneName+"</button>"
+       vsebina += "<button class='phoneOption' type='button' name="+i+" onclick='getVsebina(this)'>"+test[i].phoneName+"</button>";
 
     }
     $(".dropdown-content").append(vsebina);
@@ -84,28 +191,32 @@
     function getVsebina (x) {
        $( ".phoneData" ).empty();
        $( ".grid-item" ).empty();
+       $( ".phoneData2" ).empty();
+       $( ".grid-item2" ).empty();
       console.log(x.name);
         var infoo = "";
+        var infoo2 = "";
         for (var i=0;i<test[x.name].fixTypes.length;i++){
-        infoo += "<p>"+test[x.name].fixTypes[i]+":"+test[x.name].phonePrice[i]+"</p>"
+          if(i==0) {
+            infoo += "<h1>"+test[x.name].phoneName+" </h1>";
+            infoo2 += "<h1>"+test[x.name].phoneName+" </h1><br><p>Izberi potrebna popravila:</p>";
+          };
+        infoo += "<p>"+test[x.name].fixTypes[i]+" : "+test[x.name].phonePrice[i]+"€</p><br>";
+        infoo2 += "<input type='checkbox' id='"+test[x.name].fixTypes[i]+"' name='popravilo1' form='narociloForm'>";
+        infoo2 += "<label for='popravilo1'>"+test[x.name].fixTypes[i]+"</label><br>";
       }
-      $(".grid-item").css("background-image", "url('"+test[x.name].phonePic+"')");
+      infoo += "<button id='narociPopravilo' class='btn-two' type='button' onclick='tester2()'>Naroči popravilo</button>";
+      //"background-image", "url('"+test[x.name].phonePic+"')"
+      $(".grid-item").append("<img id='phonePicID' src='"+test[x.name].phonePic+"' >");
+      $(".grid-item2").append("<img id='phonePicID' src='"+test[x.name].phonePic+"' >");
 
       $(".phoneData").append(infoo);
-    }
-
-    $(document).ready(function() {
-    $("#button2").click(function() {
-      $("body,html").animate(
-        {
-          scrollTop: $("#page2").offset().bottom
-        },
-        800 //speed
-      );
-    });
-  });
+      $(".phoneData2").append(infoo2);
+    };
 
 
+    // <input type="checkbox" id="popravilo2" name="popravilo2" form="narociloForm">
+    // <label for="popravilo2">Menjava Baterije</label><br>
 
 
    </script>
