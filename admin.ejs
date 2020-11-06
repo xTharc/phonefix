@@ -43,8 +43,6 @@
 <p>-----------------------------------------------------------------------</p>
   </div>
 
-  <p id="ORDER">-----------------------------------------------------------------------</p>
-
 
 
  </body>
@@ -52,12 +50,12 @@
 </html>
 <script type="text/javascript">
 $( "#addOne" ).click(function() {
-$( "#last" ).append("<p>Phone Jobs:</p><input type='text' name='fixTypes' value=''><br><p>Prices:</p><input type='number' name='fixPrice' value=''> <br>" );
+$( "#last" ).append(
+   "<p>Phone Jobs:</p><input type='text' name='fixTypes' value=''><br><p>Prices:</p><input type='number' name='fixPrice' value=''> <br>" );
 });
 
 
   var test = <%-JSON.stringify(phones)%>;
-  var orders = <%-JSON.stringify(orders)%>;
   console.log(test);
  console.log(test[0].phoneName);
 
@@ -66,14 +64,11 @@ $( "#last" ).append("<p>Phone Jobs:</p><input type='text' name='fixTypes' value=
  for(var i=0;i<test.length;i++) {
    vsebina += "<button class='phoneOption' type='button' name='button'>"+test[i].phoneName+"</button>"
 
-}
-$(".adminWindow").append(vsebina);
-var vsebina2="";
-for(var i=0;i<orders.length;i++) {
-  vsebina2 += "<p>"+orders[i].imeNarocnika+","+orders[i].priimekNarocnika+","+orders[i].telefonskaStevilka+","+orders[i].email+","+orders[i].naslov+","+orders[i].kraj+","+orders[i].postnaStevilka+","+orders[i].dostava+","+orders[i].potrebnaPopravila+","+orders[i].Telefon+"</p>";
+
 
 }
-$("#ORDER").append(vsebina2);
+$(".adminWindow").append(vsebina);
+
 
 
 

@@ -156,6 +156,8 @@
 
 .div-block-3 {
   height: 100%;
+  display:grid;
+  grid-template-columns: 0.35fr 0.15fr 0.15fr 0.35fr;
 }
 
 
@@ -163,20 +165,26 @@
 .phoneOption {
 
   height: 60px;
-  width:  110px;
-  border:1px 1px 0px 1px solid black;
+  width:  120px;
+  border:1px  solid black;
   background-color: white;
-  font-family:60px 'Montserrat', sans-serif;,
+  font-family: 50px 'Montserrat', sans-serif;,
   line-height: 30px;
   animation: downOut 300ms ease-in-out forwards;
 }
 
 .dropdown {
-  display:grid;
-  grid-template-columns: 0.35fr 0.15fr 0.15fr 0.35fr;
-
+  grid-column: 2/3;
+  width: 80%;
+}
+.dropdown2 {
+  grid-column: 3/4;
+  width: 80%;
 }
 
+#menuIcon {
+
+}
 .dropbtn {
   grid-column: 2/3;
   border: 1px solid black;
@@ -198,11 +206,16 @@
   text-decoration: none;
 }
 
-
 .dropbtn:hover {
-    text-shadow: 1px 1px white;
+    text-shadow: 1px 1px lightblue;
 
   }
+  .dropbtn2:hover {
+      text-shadow: 1px 1px lightblue;
+
+    }
+
+
 .dropdown-content {
   padding-top: 75px;
   overflow: visible;
@@ -215,7 +228,22 @@
   width: 30%;
   display: none;
 }
-.dropdown:hover .dropdown-content {
+.dropdown-content2 {
+  padding-top: 75px;
+  overflow: visible;
+   z-index: 10;
+  position:absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  display: none;
+}
+.dropdown:hover  .dropdown-content {
+  display: block;
+}
+.dropdown2:hover  .dropdown-content2 {
   display: block;
 }
 .mainHolder {
@@ -462,7 +490,7 @@ max-height:100%;
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100vh; /* Full height */
+  height: 200vh; /* Full height */
   overflow: hidden; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -482,14 +510,32 @@ max-height:100%;
   border-top: none;
   border-bottom: none;
   width: 80%;
-  height: 100%;/* Could be more or less, depending on screen size */
+  height: 100vh;/* Could be more or less, depending on screen size */
     -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.6s;
   animation-name: slideIn;
   animation-duration: 0.6s;
   display: grid;
   grid-template-columns: 0.2fr 0.8fr 0.2fr ;
-  grid-template-rows: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr 1.5fr 0.5fr;
+}
+.modal-content2 {
+  overflow: hidden;
+  background-color: #fefefe;
+  margin:  auto; /* 15% from the top and centered */
+  padding: 10px;
+  border: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+  width: 80%;
+  height: 100vh;/* Could be more or less, depending on screen size */
+    -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.6s;
+  animation-name: slideIn;
+  animation-duration: 0.6s;
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr 0.2fr ;
+  grid-template-rows: 0.5fr 0.5fr 1.5fr 0.5fr;
 }
 
 /* The Close Button */
@@ -506,6 +552,23 @@ max-height:100%;
 
 .close:hover,
 .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close2 {
+  width: 25%;
+  height: 25%;
+  color: darkgray;
+  float: right;
+  font-size: 80px;
+  font-weight: bold;
+  grid-column: 1/1;
+  grid-row: 1/1;
+}
+
+.close2:hover,
+.close2:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -536,6 +599,12 @@ max-height:100%;
   font-size: 20px;
   padding: 2px;
 }
+.formRadio {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  padding: 2px;
+  margin-bottom: 10px;
+}
 .narociloInfo{
   grid-column: 2/2;
   grid-row: 1/3;
@@ -551,6 +620,8 @@ max-height:100%;
   text-align: center;
   object-fit: scale-down;
   box-sizing: border-box;
+  max-width:100%;
+  max-height:100%;
 }
 
 .phoneData2 {
@@ -562,8 +633,27 @@ max-height:100%;
   grid-column: 3 / 4;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
-
 }
+.kek {
+
+    padding: 10px;
+}
+.submitForm {
+  border: 1px solid black;
+  width: 30%;
+  height: 9%;
+  background-color: rgba(76, 175, 16, 1);
+  margin-left: 10%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+.submitForm:hover {
+  background-color: #4CAF60;
+}
+.hiddenPhoneName {
+  display:none;
+}
+
 
 /* Add Animation */
 @-webkit-keyframes slideIn {
