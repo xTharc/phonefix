@@ -24,7 +24,7 @@ const phoneSchema = new mongoose.Schema ({
   fixTypes: [String],
   phonePrice: [String]
 });
-const tablicaSchema = new mongoose.Schema ({
+const tabletSchema = new mongoose.Schema ({
   tabletName: String,
   tabletPic: String,
   fixTypes: [String],
@@ -69,30 +69,39 @@ const Orders = new mongoose.model("Orders", repairOrder);
 
 
 //-------------------------------------OUR APP----------------------------------
-
+var foundPhone;
+var foundOrder;
+var foundTablet;
 
 app.get("/", function(req, res) {
   Phones.find({},function(err,foundPhones){
-
+foundPhone = foundPhones;
 console.log(foundPhones);
+});
+Tablets.find({},function(err,foundTablets){
+foundTablet = foundTablets;
+console.log(foundTablets);
+});
       res.render("index", {
-        phones: foundPhones
+        phones: foundPhone,
+        tablets: foundTablet
       });
 
+
 });
-});
-var foundPhone;
-var foundOrder;
+
+
+
 app.get("/admin", function(req, res) {
 
   Phones.find({},function(err,foundPhones){
 foundPhone = foundPhones;
-console.log(foundPhones);
+// console.log(foundPhones);
   });
 
 Orders.find({},function(err,foundOrders){
 foundOrder = foundOrders;
-console.log(foundOrders);
+// console.log(foundOrders);
   });
 
 res.render("admin", {
@@ -102,6 +111,10 @@ res.render("admin", {
 });
 
 app.post("/admin", function(req, res) {
+console.log("SUCK MY MASSIVE DONG");
+console.log(req.body.Choicee);
+
+if (req.body.Choicee == "Telefon") {
   const newPhone = new Phones({
     phoneName: req.body.phoneName,
     phonePic: req.body.phonePic,
@@ -110,6 +123,16 @@ app.post("/admin", function(req, res) {
     });
 
   newPhone.save();
+} else {
+  const newTablica = new Tablets({
+    tabletName: req.body.phoneName,
+    tabletPic: req.body.phonePic,
+    fixTypes: req.body.fixTypes,
+    phonePrice: req.body.fixPrice
+    });
+
+  newTablica.save();
+}
 
   res.redirect("/admin");
 });

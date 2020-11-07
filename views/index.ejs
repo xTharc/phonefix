@@ -24,7 +24,7 @@
 
   <div class="block-positioner" id="page1">
   <div  class="div-block">
-    <img id="logo" src="Asset 8.png" alt="">
+    <img id="logo" src="applefixLogo.png" alt="">
     <a  class="navButton" id="buton1" href="#page1">Domov</a>
     <a  class="navButton" id="buton2" href="#page2">Naprave</a>
     <a  class="navButton" id="buton3" href="#page3">Kontakt</a>
@@ -37,7 +37,7 @@
         <p>Popravila Apple telefonov in tablic</p>
         <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMenjava ekranov in baterij</p>
       </div>
-      <a class="co-1 gumb1 btn-one" href="#page2">Izberi napravo</a>
+      <a class="co-1 gumb1 btn-one" href="#page2" onclick="izberiNapravo()">Izberi napravo</a>
 
     </div>
   <div  class="mainHolder" id="page2">
@@ -49,7 +49,7 @@
        </div>
      </div>
        <div class="dropdown2">
-           <button  class="dropbtn_2">Tablice</button>
+           <button  class="dropbtn_2">Tablice&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""> </button>
            <div class="dropdown-content2">
          </div>
       </div>
@@ -166,6 +166,12 @@
     //     }
     //
     // });
+  function izberiNapravo() {
+
+
+
+  }
+
     const $form1 = $('#narociloForm')
 
     $form1.on('submit', submitHandler)
@@ -185,6 +191,8 @@
          $( "<h1>Hvala za naročilo =)</h1>" ).appendTo( ".modal-content" );
     }
 
+
+// --------- Ko izbereš različno dostavo so required različne stvari
       $(".kek").css( "display", "none" );
         $('#narociloForm').click(function() {
 
@@ -204,7 +212,6 @@
         }
 
     });
-
 
 
 
@@ -247,23 +254,33 @@
   }
 
       var test = <%-JSON.stringify(phones)%>;
+      var tablice = <%-JSON.stringify(tablets)%>;
       console.log(test);
      console.log(test[0].phoneName);
 
      var vsebina = "";
-
+    var vsebinaT = ""
      for(var i=0;i<test.length;i++) {
-       vsebina += "<input type='button' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)' value='"+test[i].phoneName+"'>";
-
+       vsebina += "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)'>"+test[i].phoneName+"</button>";
     };
+    for(var i=0;i<tablice.length;i++) {
+     vsebinaT += "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina2(this)'>"+tablice[i].tabletName+"</button>";
+   };
+
     $(".dropdown-content").append(vsebina);
-    $(".dropdown-content2").append("<input type='button' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)' value='LULEEEEEK'>");
+    $(".dropdown-content2").append(vsebinaT);
 
     function getVsebina (x) {
+
+      $(".dropdown-content").hide();
+
+
        $( ".phoneData" ).empty();
        $( ".grid-item" ).empty();
        $( ".phoneData2" ).empty();
        $( ".grid-item2" ).empty();
+
+
       console.log(x.name);
         var infoo = "";
         var infoo2 = "";
@@ -286,12 +303,96 @@
 
       $(".phoneData").append(infoo);
       $(".phoneData2").append(infoo2);
+
     };
+    function getVsebina2 (x) {
+      $(".dropdown-content2").hide();
+       $( ".phoneData" ).empty();
+       $( ".grid-item" ).empty();
+       $( ".phoneData2" ).empty();
+       $( ".grid-item2" ).empty();
+
+
+      console.log(x.name);
+        var infoo = "";
+        var infoo2 = "";
+
+        for (var i=0;i<tablice[x.name].fixTypes.length;i++){
+          if(i==0) {
+            // $("#narociloFonIme").val();
+            document.getElementById("FonIme").value = tablice[x.name].tabletName;
+              infoo += "<h1>"+tablice[x.name].tabletName+" </h1>";
+              infoo2 += "<h1>"+tablice[x.name].tabletName+" </h1><br><h3>Izberi potrebna popravila:</h3>";
+            };
+          infoo += "<p>"+tablice[x.name].fixTypes[i]+" : "+tablice[x.name].phonePrice[i]+"€</p><br>";
+          infoo2 += "<input type='checkbox' value='"+tablice[x.name].fixTypes[i]+"' id='"+tablice[x.name].fixTypes[i]+"' name='popravilo' form='narociloForm'>";
+          infoo2 += "<label for='popravilo1'>"+tablice[x.name].fixTypes[i]+"</label><br>";
+        }
+        infoo += "<button id='narociPopravilo' class='btn-two' type='button' onclick='tester2()'>Naroči popravilo</button>";
+        //"background-image", "url('"+tablice[x.name].phonePic+"')"
+        $(".grid-item").append("<img id='phonePicID' src='"+tablice[x.name].tabletPic+"' >");
+        $(".grid-item2").append("<img id='phonePicID' src='"+tablice[x.name].tabletPic+"' >");
+
+        $(".phoneData").append(infoo);
+        $(".phoneData2").append(infoo2);
+
+    };
+
+
+// za ponovno odpiranje menija ki se skrije ob kliku
+    $( ".dropdown" ).mouseover(function() {
+      $(".dropdown-content").show();
+    });
+
+    $( ".dropdown2" ).mouseover(function() {
+      $(".dropdown-content2").show();
+    });
 
 
     // <input type="checkbox" id="popravilo2" name="popravilo2" form="narociloForm">
     // <label for="popravilo2">Menjava Baterije</label><br>
+    // Collecting the sections
+    var $sections = $(".section");
+    var page=1;
+    var pagg;
+    var enable= 1;
+    // Define wheel event handler
 
+    document.addEventListener(
+      "wheel",
+      function(event) {
+        // Get the mouse wheel spin direction
+        if (enable==1){
+        var direction = event.deltaY;
+
+        if (direction > 0) {
+          if (page>=3){
+
+          } else {
+            page=page+1;
+          }
+
+        } else {
+          if (page<=1){
+
+          } else {
+            page=page-1;
+          }
+          // Go to previous
+        }
+        }
+pagg = "#page"
+pagg += page;
+      $('html, body').animate({
+          scrollTop: $(pagg).offset().top
+      },10);
+        enable=0;
+        setTimeout(function() {enable=1;}, 150);
+
+      console.log(page);
+      },
+      { passive: false }
+    );
 
    </script>
 

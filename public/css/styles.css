@@ -64,7 +64,7 @@
   background-color: #f5f5f5 ;
   border-bottom: 1px solid black;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.3fr 0.8fr 0.8fr 0.8fr 1.3fr;
   grid-template-rows: 1fr  1fr;
   background-clip: content-box;
   align-items: center;
@@ -163,15 +163,26 @@
 
 
 .phoneOption {
-
-  height: 60px;
-  width:  120px;
-  border:1px  solid black;
+  margin: 1px;
+  display: inline-block;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  height: 50px;
+  min-width: 150px;
+  border: none;
   background-color: white;
-  font-family: 50px 'Montserrat', sans-serif;,
   line-height: 30px;
-  animation: downOut 300ms ease-in-out forwards;
+    transition: background-color 0.28s ease-in-out;
 }
+.phoneOption:hover {
+
+  /* -webkit-animation-name: hoverOver2;
+  -webkit-animation-duration: 0.34s; */
+  background-color: #2a79e8;
+}
+
 
 .dropdown {
   grid-column: 2/3;
@@ -184,17 +195,22 @@
 
 #menuIcon {
 
+width: 14%;
+height: 10%;
 }
 .dropbtn {
   grid-column: 2/3;
   border: 1px solid black;
   width: 100%;
-  font-size: 20px;
   padding: 14px 16px;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 10px;
   text-decoration: none;
+  transition: color,background-color 0.25s ease-in-out;
 }
+
 .dropbtn_2 {
   grid-column: 3/4;
   border: 1px solid black;
@@ -203,21 +219,25 @@
   padding: 14px 16px;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  line-height: 10px;
   text-decoration: none;
+  transition: color,background-color 0.25s ease-in-out;
 }
 
 .dropbtn:hover {
     text-shadow: 1px 1px lightblue;
-
+    color:white;
+    background-color: #3ccf43;
   }
-  .dropbtn2:hover {
+  .dropbtn_2:hover {
       text-shadow: 1px 1px lightblue;
-
+      color:white;
+      background-color: #3ccf43;
     }
 
 
 .dropdown-content {
-  padding-top: 75px;
+  padding-top: 20px;
   overflow: visible;
    z-index: 10;
   position:absolute;
@@ -227,9 +247,10 @@
   margin-right: auto;
   width: 30%;
   display: none;
+
 }
 .dropdown-content2 {
-  padding-top: 75px;
+  padding-top: 20px;
   overflow: visible;
    z-index: 10;
   position:absolute;
@@ -242,9 +263,11 @@
 }
 .dropdown:hover  .dropdown-content {
   display: block;
+  animation: rotateMenu 330ms ease-in-out forwards;
 }
 .dropdown2:hover  .dropdown-content2 {
   display: block;
+  animation: rotateMenu 330ms ease-in-out forwards;
 }
 .mainHolder {
   grid-column: 1 / 4;
@@ -323,15 +346,18 @@ max-height:100%;
   font-size: 20px;
   color:white;
   background-color: #4CAF50;
-  margin-top: 60%;
-  width: 40%;
+  margin-top: 4%;
+  padding-left: 3px;
+  padding-right: 3px
+  display: inline-block;
+  min-width: 40%;
   height:10%;
   text-align: center;
   position: relative;
   transition: all 0.3s;
   a {
     transition: all 0.3s;
-    tranform: scale(1, 1);
+    transform: scale(1, 1);
   }
 }
 #narociPopravilo::before, #narociPopravilo::after {
@@ -702,9 +728,7 @@ max-height:100%;
 0% {
     transform: rotateX(-90deg)
 }
-70% {
-    transform: rotateX(20deg)
-}
+
 100% {
     transform: rotateX(0deg)
 }
