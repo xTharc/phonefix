@@ -13,20 +13,18 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 //phoneDBNode:PrOtoniXX10878@
-mongoose.connect("mongodb://localhost:27017/phoneDB", {
+mongoose.connect("mongodb://phoneDBNode:PrOtoniXX10878@localhost:27017/phoneDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 // ----------------------------------MONGODB SCHEMAS AND MODULES----------------
 const phoneSchema = new mongoose.Schema ({
-  phoneBrand:String,
   phoneName: String,
   phonePic: String,
   fixTypes: [String],
   phonePrice: [String]
 });
 const tabletSchema = new mongoose.Schema ({
-  tabletBrand: String,
   tabletName: String,
   tabletPic: String,
   fixTypes: [String],
@@ -49,8 +47,25 @@ const Phones = new mongoose.model("Phones", phoneSchema);
 const Tablets = new mongoose.model("Tablets", tabletSchema);
 const Orders = new mongoose.model("Orders", repairOrder);
 
-// Phones.updateMany({}, {"$set": {phoneBrand: "apple"}},function(err, doc) {});
-// Tablets.updateMany({}, {"$set": {tabletBrand: "apple"}},function(err, doc) {});
+// const ipSchema = new mongoose.Schema ({
+//   ip: String
+// });
+// const dataSchema = new mongoose.Schema ({
+//   spot: String,
+//   timesclicked: Number
+// });
+//
+//const Mapp = new mongoose.model("Mapp", pageSchema);
+// const Ipp = new mongoose.model("Ipp", ipSchema);
+// const Dataa = new mongoose.model("Dataa", dataSchema);
+// //
+//  var inputin = new Phones({
+//    phoneName: "iPhone 8S",
+//    phonePic: "https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/A2/F5/587b03e3-bc3e-402e-bdbd-27d05b6620ad.jpg",
+//    fixTypes: ["Popravilo Stekla","Menjava baterije"],
+//    phonePrice: ["20","30"]
+// });
+
 
 
 //-------------------------------------OUR APP----------------------------------
@@ -71,7 +86,6 @@ console.log(foundTablets);
         phones: foundPhone,
         tablets: foundTablet
       });
-
 
 
 });
@@ -102,7 +116,6 @@ console.log(req.body.Choicee);
 
 if (req.body.Choicee == "Telefon") {
   const newPhone = new Phones({
-    phoneBrand: req.body.Choicee2,
     phoneName: req.body.phoneName,
     phonePic: req.body.phonePic,
     fixTypes: req.body.fixTypes,
@@ -112,7 +125,6 @@ if (req.body.Choicee == "Telefon") {
   newPhone.save();
 } else {
   const newTablica = new Tablets({
-    tabletBrand: req.body.Choicee2,
     tabletName: req.body.phoneName,
     tabletPic: req.body.phonePic,
     fixTypes: req.body.fixTypes,

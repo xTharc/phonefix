@@ -14,7 +14,6 @@
   <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
   <link href="https://uploads-ssl.webflow.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://uploads-ssl.webflow.com/img/webclip.png" rel="apple-touch-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -25,19 +24,15 @@
 
   <div class="block-positioner" id="page1">
   <div  class="div-block">
-    <div id="logo">
-      <img id="logoH" src="applefixznak.png" alt="">
-    </div>
-
+    <img id="logo" src="applefixLogo.png" alt="">
     <a  class="navButton" id="buton1" href="#page1">Domov</a>
     <a  class="navButton" id="buton2" href="#page2">Naprave</a>
     <a  class="navButton" id="buton3" href="#page3">Kontakt</a>
 
-    <a id="facebook" target="_blank" href="https://www.facebook.com/AppleFixSlovenija/" class="fa fa-facebook"></a>
   </div>
     </div>
     <div  class="mainHolder3">
-        <img id="titleIMG" src="./applefixmain.png" alt="">
+      <p class="tittle">Applefix</p>
       <div class="text1">
         <p>Popravila Apple telefonov in tablic</p>
         <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMenjava ekranov in baterij</p>
@@ -49,36 +44,13 @@
       <div class="centered-container ">
         <div class="div-block-3">
            <div class="dropdown">
-
-               <button class="dropbtntest">Telefoni&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""></button>
-               <div class="menuT1">
-                 <button type="button" class="applemenu phoneOption" href="#">Apple</button>
-                 <button type="button" class=" samsungmenu phoneOption"href="#">Samsung</button>
-
-                 <div class="menuT2 menuApple">
-
-                 </div>
-                 <div class="menuT2 menuSamsung">
-
-                 </div>
-               </div>
-
-       <!-- <button  class="dropbtn">Telefoni&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""> </button>
+       <button  class="dropbtn">Telefoni&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""> </button>
        <div class="dropdown-content">
-       </div> -->
+       </div>
      </div>
        <div class="dropdown2">
-           <button class="dropbtntest2">Tablice&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""></button>
-           <div class="menuT1t">
-           <button type="button" class="applemenuT phoneOption" href="#">Apple</button>
-           <button type="button" class=" samsungmenuT phoneOption"href="#">Samsung</button>
-
-           <div class="menuT2t menuAppleT">
-
-           </div>
-           <div class="menuT2t menuSamsungT">
-
-           </div>
+           <button  class="dropbtn_2">Tablice&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""> </button>
+           <div class="dropdown-content2">
          </div>
       </div>
          </div>
@@ -170,54 +142,9 @@
 
 </div>
 
-<!-- <div class="">
-   <button  class="dropbtnT">Telefoni&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""> </button>
-   <div class="menu-1">
-     <button  class="dropbtnT2">Drugi meni<img id="menuIcon" src="menuIcon2.png" alt=""> </button>
-     <div class="menu-2">
-
-     </div>
-   </div>
-</div> -->
 
 
       <div id="page3" class="mainHolder2">
-<div class="kontaktInfo">
-<h1>Kontakti podatki</h1>
-<p>Tel: 031337356</p>
-<p>e-Mail: info@applefix.si</p>
-<h3>Naslov:</h3>
-<p>Gortinska cesta 106a</p>
-<p>2366 Muta</p>
-<h3>Sedež:</h3>
-<p>MAKASPORT d.o.o.</p>
-<p>Brezni Vrh 56</p>
-<p>2363 Podvelka</p>
-</div>
-
-<div class="kontaktForm">
-<h3>Imate kakršno koli vprašanje?<br> Pošljite nam mail iz spodnjega obrazca</h3>
-<form id="sendMail" >
-  <div class='k'>
-    <label class='formLabel' for='email'>Vaš email naslov</label> <br>
-    <input class='formInput' type='email'  name='email' placeholder='janez@gmail.com'><br>
-  </div>
-  <div class='k'>
-    <label class='formLabel' for='title'>Zadeva</label> <br>
-    <input class='formInput' type='email'  name='title' placeholder='Rabim nov ekran'><br>
-  </div> <br>
-  <div class='k'>
-    <label class='formLabel' for='title'>Sporočilo</label> <br>
-    <textarea class="textArea"  form="sendMail" name="mailContent" rows="20" ></textarea>
-  </div>
-<br>
-
-<input class="submitForm2" type="submit" value="Pošlji sporočilo">
-</form>
-</div>
-
-
-
       </div>
 <div class='hiddenPhoneName'>
   <input  type='text' id='FonIme' name='Imefona' form="narociloForm" value="" >
@@ -225,23 +152,6 @@
 
 
     <script type="text/javascript">
-
-    $( ".dropbtnT" ).mouseover(function() {
-      $(".menu-1").show();
-    });
-
-    $( ".dropbtnT" ).mouseout(function() {
-  $(".menu-1").hide();
-});
-$( ".dropbtnT2" ).mouseover(function() {
-  $(".menu-1").show();
-  $(".menu-2").show();
-});
-$( ".dropbtnT" ).mouseout(function() {
-$(".menu-1").hide();
-$(".menu-2").hide();
-});
-
     //     $('#narociloForm').click(function() {
     //       var formPart1 = "<div class='kek'> <label class='formLabel' for='address'>Ulica in hišna številka</label>  <input class='formInput' type='text' id='address' name='address'><br class='kek'> </div>  <div class='kek'>  <label class='formLabel' for='city'>Kraj</label><br class='kek'>  <input class='formInput' type='text' id='city' name='city' placeholder='Ljubljana'><br class='kek'>  </div> <br> <div class='kek'> <label class='formLabel' for='zip'>Poštna številka</label><br> <input class='formInput' type='number' id='zip' name='zip'placeholder='1000'></div>";
     //    if($('#dostavaOsebno').is(':checked')) {
@@ -348,34 +258,21 @@ $(".menu-2").hide();
       console.log(test);
      console.log(test[0].phoneName);
 
-     var vsebinaApple = "";
-     var vsebinaSamsung ="";
-     var vsebinaAppleT = "";
-     var vsebinaSamsungT = "";
+     var vsebina = "";
+    var vsebinaT = ""
      for(var i=0;i<test.length;i++) {
-       if (test[i].phoneBrand == "apple") {
-       vsebinaApple += "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)'>"+test[i].phoneName+"</button>";
-} else {
-    vsebinaSamsung = "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)'>"+test[i].phoneName+"</button>";
-}
+       vsebina += "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)'>"+test[i].phoneName+"</button>";
     };
     for(var i=0;i<tablice.length;i++) {
-      if (tablice[i].tabletBrand == "apple") {
-      vsebinaAppleT += "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina2(this)'>"+tablice[i].tabletName+"</button>";
-      } else {
-      vsebinaSamsungT = "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)'>"+tablice[i].tabletName+"</button>";
-      }
+     vsebinaT += "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina2(this)'>"+tablice[i].tabletName+"</button>";
    };
 
-
-    $(".menuApple").append(vsebinaApple);
-    $(".menuSamsung").append(vsebinaSamsung);
-    $(".menuAppleT").append(vsebinaAppleT);
-    $(".menuSamsungT").append(vsebinaSamsungT);
+    $(".dropdown-content").append(vsebina);
+    $(".dropdown-content2").append(vsebinaT);
 
     function getVsebina (x) {
 
-      $(".menuT1").hide();
+      $(".dropdown-content").hide();
 
 
        $( ".phoneData" ).empty();
@@ -409,7 +306,7 @@ $(".menu-2").hide();
 
     };
     function getVsebina2 (x) {
-      $(".menuT1t").hide();
+      $(".dropdown-content2").hide();
        $( ".phoneData" ).empty();
        $( ".grid-item" ).empty();
        $( ".phoneData2" ).empty();
@@ -443,12 +340,12 @@ $(".menu-2").hide();
 
 
 // za ponovno odpiranje menija ki se skrije ob kliku
-    $( ".dropbtntest" ).mouseover(function() {
-      $(".menuT1").show();
+    $( ".dropdown" ).mouseover(function() {
+      $(".dropdown-content").show();
     });
 
-    $( ".dropbtntest2" ).mouseover(function() {
-      $(".menuT1t").show();
+    $( ".dropdown2" ).mouseover(function() {
+      $(".dropdown-content2").show();
     });
 
 
@@ -490,7 +387,7 @@ pagg += page;
           scrollTop: $(pagg).offset().top
       },10);
         enable=0;
-        setTimeout(function() {enable=1;}, 200);
+        setTimeout(function() {enable=1;}, 150);
 
       console.log(page);
       },
