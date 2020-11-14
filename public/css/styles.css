@@ -41,7 +41,7 @@
 .body {
   overflow: hidden;
   height: 300vh;
-  width: 100%;
+  width: 100vw;
   display: -ms-grid;
   display: grid;
   grid-column-gap: 0px;
@@ -58,10 +58,10 @@
 }
 .div-block {
   position:fixed;
-  width: 100%;
-  height: 10%;
+  width: 100vw;
+  height: 10vh;
   /* #E6E6E6 #f5f5f5  #2b2b13 #525224*/
-  background-color: #2b2b13;
+  background-color: #0A0303;
   border-bottom: 1px solid black;
   display: grid;
   grid-template-columns: 1.3fr 0.8fr 0.8fr 0.8fr 1.3fr;
@@ -72,9 +72,9 @@
 .navButton {
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
-  width: 115px;
-  height: 50px;
-  padding: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 1px;
   text-align: center;
   vertical-align: center;
   border-radius: 5px;
@@ -82,7 +82,7 @@
   font-weight: 200 ;
   font-style: normal;
   line-height: 50px;
-  font-size: 30px;
+  font-size: 1.6vmax;
 }
 .navButton:hover {
   text-shadow: 1px 1px lightblue;
@@ -163,7 +163,7 @@
 .div-block-3 {
   height: 100%;
   display:grid;
-  grid-template-columns: 0.35fr 0.15fr 0.15fr 0.35fr;
+  grid-template-columns: 0.35fr 0.15fr 0.15fr 0.15fr 0.20fr;
 }
 
 
@@ -193,19 +193,24 @@
 .dropdown {
   grid-column: 2/3;
   width: 100%;
-  grid-template-columns: 0.35fr 0.15fr 0.15fr 0.35fr;
+
 
 }
 .dropdown2 {
   grid-column: 3/4;
   width: 100%;
-  grid-template-columns: 0.35fr 0.15fr 0.15fr 0.35fr;
+
+}
+.dropdown3 {
+  grid-column: 4/5;
+  width: 100%;
+
 }
 
 #menuIcon {
 
-width: 14%;
-height: 10%;
+width: 1vw ;
+height: 1.6vh;
 }
 .dropbtn {
   grid-column: 2/3;
@@ -344,17 +349,15 @@ height: 10%;
 
 #phonePicID {
   max-width:100%;
-max-height:100%;
-
+  max-height:100%;
 }
 
 .phoneData {
   padding-left: 2%;
   position: relative;
-  overflow: auto;
+  overflow: visible;
   align-items: center;
-  min-width: 0;
-  grid-column: 4 / 6;
+  grid-column: 4 / 7;
   grid-row: 2 /2;
   font-family: 'Montserrat', sans-serif;
 
@@ -424,7 +427,7 @@ max-height:100%;
   color:white;
   display: block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
+  font-size: 2vw;
   grid-column: 2 / 4;
   grid-row: 3 / 4;
   margin:auto;
@@ -444,15 +447,15 @@ max-height:100%;
 .gumb1 {
   margin:auto;
   text-align: center;
-  font-size: 20px;
+  font-size: 2vh;
   grid-column: 2 / 4;
   grid-row: 3 / 5;
   box-sizing: border-box;
   position: relative;
   color: white;
-  width: 256px;
-  height: 64px;
-  line-height: 64px;
+  width: 12vw;
+  height: 7vh;
+  line-height: 7vh;
   transition: all 0.3s;
   a {
     transition: all 0.3s;
@@ -545,6 +548,7 @@ max-height:100%;
 /* Modal Content/Box */
 .modal-content {
   overflow: hidden;
+  color: #E9C33E;
   background-color: #fefefe;
   margin:  auto; /* 15% from the top and centered */
   padding: 10px;
@@ -560,6 +564,9 @@ max-height:100%;
   display: grid;
   grid-template-columns: 0.2fr 0.8fr 0.2fr ;
   grid-template-rows: 0.5fr 0.5fr 1.5fr 0.5fr;
+  background-image: url("./zahvala.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .modal-content2 {
   overflow: hidden;
@@ -636,9 +643,21 @@ max-height:100%;
   width: auto;
   height: auto;
 }
+.formInputLong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  width: 100%;
+  height: auto;
+}
 .formLabel {
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 1.1vmax;
+  padding: 2px;
+}
+.formLabelLong {
+  font-family: 'Montserrat', sans-serif;
+  width: 150%;
+  font-size: 19px;
   padding: 2px;
 }
 .formRadio {
@@ -674,32 +693,36 @@ max-height:100%;
   min-width: 0;
   grid-column: 3 / 4;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 1vmax;
 }
 .kek {
-
-    padding: 10px;
+    padding: 8px;
+}
+.kek5 {
+    padding: 8px;
+    width:100%;
 }
 .submitForm {
   border: 1px solid black;
-  width: 30%;
-  height: 9%;
+  width: 7vw;
+  height: 4vh;
   background-color: rgba(76, 175, 16, 1);
   margin-left: 10%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 1vmax;
+  display: inline-block;
 }
 .submitForm:hover {
   background-color: #4CAF60;
 }
 .submitForm2 {
   border: 1px solid black;
-  min-width: 20%;
-  height: 10%;
+  min-width: 2vw;
+  height: 5vh;
   background-color: rgba(76, 175, 16, 1);
   margin-left: auto;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 1vmax;
 }
 .submitForm2:hover {
   background-color: #4CAF60;
@@ -720,7 +743,7 @@ max-height:100%;
   padding: 14px 16px;
   margin: auto;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 2.1vh;
   line-height: 10px;
   text-decoration: none;
   transition: color,background-color 0.25s ease-in-out;
@@ -735,7 +758,24 @@ max-height:100%;
   color:white;
   background-color: #E9C33E;
 }
-
+.dropbtntest3 {
+  display:inline-block;
+  border: 1px solid black;
+  min-width: 135%;
+  height: 62%;
+  padding: 14px 16px;
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vh;
+  line-height: 10px;
+  text-decoration: none;
+  transition: color,background-color 0.25s ease-in-out;
+}
+.dropbtntest3:hover {
+  text-shadow: 1px 1px lightblue;
+  color:white;
+  background-color: #E9C33E;
+}
 .menuT1 a {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
@@ -764,13 +804,31 @@ max-height:100%;
      position: absolute;
      z-index: 2;
     }
+.menuHuawei {
+            margin:auto;
+        display: none;
+         position: absolute;
+         z-index: 2;
+        }
+.menuXiaomi {
+                    margin:auto;
+                display: none;
+                 position: absolute;
+                 z-index: 2;
+                }
+.menuLG {
+            margin:auto;
+            display: none;
+             position: absolute;
+           z-index: 2;
+                        }
   .menuT1 {
     grid-column: 2/3;
     padding-top: 15px;
     position: absolute;
     overflow: visible;
     z-index: 2;
-    width: 40%;
+    width: 45vw;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -802,6 +860,18 @@ max-height:100%;
   display: block;
   animation: rotateMenu 330ms ease-in-out forwards;
 }
+.huaweimenu:hover ~ .menuHuawei{
+  display: block;
+  animation: rotateMenu 330ms ease-in-out forwards;
+}
+.xiaomimenu:hover ~ .menuXiaomi {
+  display: block;
+  animation: rotateMenu 330ms ease-in-out forwards;
+}
+.lgmenu:hover ~ .menuLG {
+  display: block;
+  animation: rotateMenu 330ms ease-in-out forwards;
+}
 .menuT1:hover {
   display: block;
 }
@@ -811,19 +881,20 @@ max-height:100%;
 .menuSamsung:hover {
   display: block;
 }
+.menuHuawei:hover {
+  display: block;
+}
+.menuXiaomi:hover {
+  display: block;
+}
+.menuLG:hover {
+  display: block;
+}
 
 .menuT2:hover > .menuT1 {
   display: block;
 }
-.phoneOption2 {
 
-}
-.phoneOption2:hover {
-
-  /* -webkit-animation-name: hoverOver2;
-  -webkit-animation-duration: 0.34s; */
-  background-color: #2a79e8;
-}
 /* DRUGIMMENIIIIIIIIIIIIIIII */
 
 .dropbtntest2 {
@@ -832,7 +903,7 @@ max-height:100%;
   padding: 14px 16px;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 2.1vh;
   line-height: 10px;
   text-decoration: none;
   transition: color,background-color 0.25s ease-in-out;
@@ -901,6 +972,7 @@ max-height:100%;
   display: block;
   animation: rotateMenu 330ms ease-in-out forwards;
 }
+
 .menuT1t:hover {
   display: block;
 }
@@ -915,14 +987,15 @@ max-height:100%;
   display: block;
 }
 .phoneOption {
+  cursor: pointer;
   margin:auto;
   text-decoration: none;
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: bold;
-  height: 50px;
-  min-width: 160px;
+  height: 5.5vh;
+  min-width: 10vw;
   border: none;
   color: black;
   background-color: white;
@@ -935,11 +1008,34 @@ max-height:100%;
   -webkit-animation-duration: 0.34s; #2a79e8 */
   background-color:  #E9C33E;
 }
+.phoneOption2 {
+  margin:auto;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  height: 6vh;
+  min-width: 5.5vw;
+  border: none;
+  color: black;
+  background-color: white;
+  line-height: 20px;
+  transition: background-color 0.28s ease-in-out;
+}
+.phoneOption2:hover {
+
+  /* -webkit-animation-name: hoverOver2;
+  -webkit-animation-duration: 0.34s; #2a79e8 */
+  background-color:  #E9C33E;
+}
 
 #titleIMG {
   grid-column: 2/4;
   grid-row: 2/3;
   margin: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 #facebook {
   grid-column: 5/5;
@@ -947,9 +1043,9 @@ max-height:100%;
   margin: auto;
 }
 .fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 20px;
+  padding: 4%;
+  font-size: 8%;
+  width: 5%;
   text-align: center;
   text-decoration: none;
 
@@ -971,35 +1067,123 @@ max-height:100%;
   grid-column: 1 / 4;
   grid-row: 4 /4;
   position:static;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  background-image: url("page3.png");
+  background-image: url("page3BG2.png");
   background-size: cover;
   display:grid;
   grid-template-columns: 0.1fr 0.4fr 0.4fr 0.1fr;
-  grid-template-rows: 0.2fr 0.7fr 0.1fr;
+  grid-template-rows: 0.15fr 0.8fr 0.05fr;
 }
 .kontaktInfo {
   grid-column: 2 / 3;
   grid-row: 2/3;
-  padding: 20px;
+ padding-top: 5%;
  font-family: 'Montserrat', sans-serif;
- font-size: 18px;
+ font-size: 1vmax;
  color: white;
+ text-align: center;
 }
 .kontaktForm {
   grid-column: 3 / 4;
   grid-row: 2/3;
-  padding: 20px;
+  padding: 5%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 1vmax;
   color: white;
 }
 .textArea {
   width: 70%;
   min-height: 50%;
 }
+.textArea2 {
+  width: 100%;
+  min-height: 50%;
+}
+.naslovZahvala {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  grid-column: 2/2;
+  grid-row: 1/1;
+  margin:auto;
+  color: white;
+}
+.podatkiZahvala {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  grid-column: 2/2;
+  grid-row: 2/4;
+  margin:auto;
+  margin-top: 10%;
+  text-align: center;
+  color: white;
+}
+/* .highlight {
+    background-color:rgba(255,255,50,0.3);
 
+} */
+.podatkiZahvala h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  margin:auto;
+}
+.podatkiZahvala h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  color: gold;
+  margin:auto;
+}
+.podatkiZahvala p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: gold;
+  margin:auto;
+}
+.lineHolder {
+  margin-left: 20%;
+  grid-row: 3/3;
+  grid-column: 1/1;
+  height: 80%;
+  width: 5%;
+}
+.progressLine {
+  background-color: gold;
+  height: 50%;
+  width: 100%;
+}
+#Point {
+  position: relative;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 6%;
+  z-index: 5;
+  border-radius: 50%;
+  background-color: black;
+
+}  #Point2 {
+    margin-top:100%;
+
+    z-index: 4;
+  }
+  #beforePick {
+    color:gold;
+    text-align: center;
+    grid-column: 3 / 5;
+  }
+
+  .mojNaprava {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4vh;
+  }
+  .k2 {
+    margin-left: 0.15vw;
+    margin-bottom: 0.55vh;
+    margin-right: 0.15vw;
+    display: inline-block;
+    width: 100%;
+  }
 
 /* Add Animation */
 @-webkit-keyframes slideIn {
