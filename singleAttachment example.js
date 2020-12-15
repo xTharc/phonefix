@@ -1,26 +1,20 @@
 //jshint esversion:6
 const express = require("express");
-// var secure = require('express-force-https');
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const socket = require("socket.io");
 const _ = require("lodash");
 const app = express();
-// app.use(secure);
 var nodemailer = require('nodemailer');
 const multer = require("multer");
-
-const https = require('https');
-const fs = require('fs');
 // const upload = multer({dest: 'uploads/'});
 // const fileupload = require("express-fileupload");
 // app.use(fileupload());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'));
-// var privateKey = fs.readFileSync('key.pem').toString();
-// var certificate = fs.readFileSync('cert.pem').toString();
+
 // const storage = multer.diskStorage({
 //   destination: function(req, file, callback) {
 //     callback(null, '/uploads');
@@ -57,10 +51,7 @@ app.use(morgan('dev'));
   //   dest: 'uploadedFiles' // this saves your file into a directory called "uploads"
   // });
 
-  const options = {
-    key: fs.readFileSync('key.pem'),
-    cert: fs.readFileSync('cert.pem')
-  };
+
 
 app.set('view engine', 'ejs');
 
@@ -135,24 +126,10 @@ var foundPhone;
 var foundOrder;
 var foundTablet;
 
-// http.get("", function(req, res) {
-//     res.redirect('https://applefix.si');
-//
-//     // Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
-//   // res.redirect('https://example.com' + req.url);
-// })
-app.enable('trust proxy');
-
 
 
 app.get("", function(req, res) {
-  if (req.secure) {
-                // request was via https, so do no special handling
 
-        } else {
-                // request was via http, so redirect to https
-                  res.redirect('https://www.applefix.si');
-        }
 
   Phones.find({}, function(err, foundPhones) {
     foundPhone = foundPhones;
@@ -181,9 +158,7 @@ app.get("", function(req, res) {
 
 
 
-app.get("/adminTGxt", function(req, res) {
-
-
+app.get("/admin", function(req, res) {
 
   Phones.find({}, function(err, foundPhones) {
     foundPhone = foundPhones;
@@ -200,7 +175,7 @@ app.get("/adminTGxt", function(req, res) {
     });
 
   });
-  app.get("/odkupPoslan", function(req, res) {
+  app.get("/test", function(req, res) {
 
     res.render("test", {});
     });
@@ -238,13 +213,13 @@ app.post("/admin", function(req, res) {
 });
 
 app.post("", function(req, res) {
-  // var dostavaN;
-  // if (req.body.address === "") {
-  //   dostavaN = "false";
-  // } else {
-  //   dostavaN = "true";
-  // }
-console.log("TEST999"+req.body.dostava);
+  var dostavaN;
+  if (req.body.address === "") {
+    dostavaN = "false";
+  } else {
+    dostavaN = "true";
+  }
+
   const newOrder = new Orders({
     imeNarocnika: req.body.fname,
     priimekNarocnika: req.body.lname,
@@ -253,7 +228,7 @@ console.log("TEST999"+req.body.dostava);
     naslov: req.body.address,
     kraj: req.body.city,
     postnaStevilka: req.body.zip,
-    dostava: req.body.dostava,
+    dostava: dostavaN,
     potrebnaPopravila: req.body.popravilo,
     Telefon: req.body.Imefona
   });
@@ -266,7 +241,7 @@ console.log("TEST999"+req.body.dostava);
     from: req.body.email,
     to: 'info@applefix.si',
     subject: "Novo Naročilo na popravilo za " + req.body.Imefona,
-    text: "Novo Naročilo od " + req.body.fname + " | " + req.body.lname + "\n|Telefon " + req.body.Imefona + "\n|Telefonska st. :" + req.body.phoneNum + "\n|" + req.body.email + "\n|Naslov:" + req.body.address + "\n|Kraj:" + req.body.city + "\n|PostnaŠt.:" + req.body.zip + "\n|Potrebna popravila: " + req.body.popravilo +"\n|Nacin Dostave:"+req.body.dostava+ "\n|Opombe: " + req.body.mailContent + "\nKONEC Naročila"
+    text: "Novo Naročilo od " + req.body.fname + " | " + req.body.lname + "\n|Telefon " + req.body.Imefona + "\n|Telefonska st. :" + req.body.phoneNum + "\n|" + req.body.email + "\n|Naslov:" + req.body.address + "\n|Kraj:" + req.body.city + "\n|PostnaŠt.:" + req.body.zip + "\n|Potrebna popravila: " + req.body.popravilo + "\n|Opombe: " + req.body.mailContent + "\nKONEC Naročila"
   };
   console.log(mailOptions);
 
@@ -310,8 +285,7 @@ app.post("/mojFon", function(req, res) {
     from: req.body.email,
     to: 'info@applefix.si',
     subject: "Druga_Naprava:"+req.body.phone,
-    text: "Novo Naročilo od " + req.body.fname + " | " + req.body.lname + "\n|Telefon " + req.body.phone + "\n|" + req.body.email + "\n|Naslov:" + req.body.address + "\n|Kraj:" + req.body.city + "\n|PostnaŠt.:" + req.body.zip + "\n|Opombe: " + req.body.mailContent + "\nKONEC DRUGE NAPRAVE"
-
+    text: req.body.mailContent
   };
 
   transporter.sendMail(mailOptions, function(error, info) {
@@ -356,34 +330,29 @@ app.post("/mojFon", function(req, res) {
 
 
 
-app.post('/upload', upload.array('file'), (req, res) => {
-  if (!req.files) {
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
     console.log("No file received");
+
+
   } else {
     console.log('file received');
+
   }
-  //----- Dynamicly Add as many attachments as needes ---- ˇˇˇ
-var attachments_ = [];
-  for (var i = 0;i<req.files.length; i++) {
-  attachments_.push({
-       filename: req.files[i].filename,
-       path:   req.files[i].path ,
-       cid: "uploads/"+req.files[i].filename //same cid value as in the html img src
-   })
- }
-    console.log(attachments_);
   console.log(req.body.email + "TEEST");
-  console.log(req.files);
+  console.log(req.file);
   var mailOptions = {
     from: req.body.email,
     to: 'info@applefix.si',
     subject: "Odkup:"+req.body.phone,
     text: req.body.phone +"______ Sporočilo:" + req.body.mailContent,
-    html: 'Embedded image: <img src="uploads/'+req.files[0].filename+'"/>',
-    attachments: attachments_
-
+    html: 'Embedded image: <img src="uploads/'+req.file.filename+'"/>',
+    attachments: [{
+        filename: req.file.filename,
+        path:   req.file.path ,
+        cid: "uploads/"+req.file.filename //same cid value as in the html img src
+    }]
   };
-
 
   transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
@@ -393,8 +362,7 @@ var attachments_ = [];
     }
   });
 
-  res.redirect("/odkupPoslan")
-  // res.end('Mail & file sent');
+  res.end('Mail & file sent');
 
 
 });
@@ -422,22 +390,14 @@ let transporter = nodemailer.createTransport({
 
 
 //------------------------------------------------------------------------------
-var server = https.createServer(options, app);
-
-server.listen(4123, () => {
-  console.log("server starting on port : " + server.address().port);
+var server = app.listen(4000, function() {
+  console.log("Server started on port 4000:");
 });
 
-// var server1 = app.listen(4000, function() {
-//   console.log("Server started on port 4000:");
+//--------- ZA HITROST
+// const server = app.listen(0, () => {
+//     console.log('Example app listening at http://localhost:', server.address().port);
 // });
-// http.createServer(app).listen(80);
-// var server = https.createServer(options, app).listen(4000);
-
-// --------- ZA HITROST
-const server2 = app.listen(4124, () => {
-    console.log('Example app listening at http://localhost:', server.address().port);
-});
 
 //SOCKET SETUP
 var io = socket(server);

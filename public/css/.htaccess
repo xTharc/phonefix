@@ -1,0 +1,7 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/jozz11/domains/applefix.si/applefix"
+PassengerBaseURI "/"
+PassengerNodejs "/home/jozz11/nodevenv/domains/applefix.si/applefix/12/bin/node"
+PassengerAppType node
+PassengerStartupFile app.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END

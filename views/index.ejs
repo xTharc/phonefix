@@ -5,17 +5,28 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <meta charset="utf-8" />
-  <title>Phone</title>
 
   <meta content="Phone" property="og:title" />
   <meta content="Phone" property="twitter:title" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="styles" rel="./styles.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <script src="https://kit.fontawesome.com/1e8f99012f.js" crossorigin="anonymous"></script>
+  <link href="styles" rel="css/styles.css" type="text/css" />
   <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
   <link href="https://uploads-ssl.webflow.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link href="https://uploads-ssl.webflow.com/img/webclip.png" rel="apple-touch-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-185530259-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-185530259-1');
+  </script>
+
 </head>
 
 
@@ -23,27 +34,74 @@
 
 
 <body class="body">
+  <script>
+  var socket = io.connect('applefix.si');
 
+  </script>
   <div class="block-positioner" id="page1">
   <div  class="div-block">
     <div id="logo">
       <img id="logoH" src="applefixznak.png" alt="">
     </div>
 
-    <a  class="navButton" id="buton1" href="#page1">Domov</a>
-    <a  class="navButton" id="buton2" href="#page2">Naprave</a>
-    <a  class="navButton" id="buton3" href="#page3">Kontakt</a>
+    <div class="phoneMenu">
+      <span id="menuIconphone">
+        <i class="fas fa-bars"></i>
+  </span>
+    </div>
 
-    <a id="facebook" target="_blank" href="https://www.facebook.com/AppleFixSlovenija/" class="fa fa-facebook"></a>
+    <div class="unleashMenu">
+      <a  class="navButton" id="buton1" href="#page1">Domov</a>
+      <a  class="navButton" id="buton2" href="#page2">Naprave</a>
+      <a  class="navButton" id="buton3" href="#page3">Odkup</a>
+      <a  class="navButton" id="buton4" href="#page4">Kontakt</a>
+
+    </div>
+    <span id="facebook" style="color: #0A80EC; text-decoration: none;">
+      <i style="text-decoration: none; cursor: pointer;"  class="fab fa-facebook-square"></i>
+</span>
+    <!-- <a  target="_blank" href="https://www.facebook.com/AppleFixSlovenija/" class="fa fa-facebook"></a> -->
   </div>
     </div>
     <div  class="mainHolder3">
+      <div class="scroll">
+    <a>
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
+    </a>
+</div>
         <img id="titleIMG" src="./applefixmain.png" alt="">
-      <div class="text1">
+        <div class="levibox">
+          <div class="filler2">
+
+          </div>
+
+          <div class="text1">
+            <!-- <i  class="fas fa-tools"></i> -->
+              <span class="naslovSetting"><h2>Servis naprav</h2></span>
+            <p><span  class="iconify IconSettings" data-icon="la:tools" data-inline="false"></span> <br>Nudimo popravila telefonov in tablic za večino znamk</p>
+            <p>Menjava zaslonov, baterij, tipk, ...</p>
+          <p><span class="iconify IconSettings" data-icon="ant-design:field-time-outlined" data-inline="false"></span> <br>Popravilo opravimo v roku 1 ure do 5 dni, odvisno od težavnosti popravila in dobavljivosti rezervnih delov</p>
+          <p><span class="iconify IconSettings" data-icon="simple-line-icons:screen-smartphone" data-inline="false"></span> <br>Uporabljamo kvalitetne nadomestne dele</p>
+          </div>
+        </div>
+        <div class="desnibox">
+          <div class="text1">
+            <!-- <i  class="fas fa-tools"></i> -->
+              <span class="naslovSetting"><h2>Kako poteka popravilo ?</h2></span>
+            <p><span class="iconify IconSettings" data-icon="ph:number-square-one-fill" data-inline="false"></span><br>Izberi napravo in izpolni naročilnico</p>
+        <p><span class="iconify IconSettings" data-icon="ph:number-square-two-fill" data-inline="false"></span><br>Napravo pošljite po pošti, jo prinesite v poslovalnico ali pa jo prevzame kurir na željeni lokaciji</p>
+      <p><span class="iconify IconSettings" data-icon="ph:number-square-three-fill" data-inline="false"></span><br>Napravo popravimo v roku 1h - 5 dni, odvisno od težavnosti popravila in dobavljivosti rezervnih delov</p>
+        <p><span class="iconify IconSettings" data-icon="ph:number-square-four-fill" data-inline="false"></span><br>Popravljeno napravo lahko osebno prevzamete v poslovalnici, vam jo pošljemo po pošti ali pa jo dostavimo na željeni naslov</p>
+          </div>
+        </div>
+      <!-- <div class="text1">
         <p>Popravila telefonov in tablic</p>
-        <p>Menjava zaslonov, baterij, tipk...</p>
-      </div>
-      <a class="co-1 gumb1 btn-one" href="#page2" onclick="izberiNapravo()">Izberi napravo</a>
+        <p>Menjava zaslonov, baterij, tipk, ...</p>
+      </div> -->
+
+      <a class="co-1 gumb1 btn-one" href="#page2" onclick="izberiNapravo()">Izberi napravo</a> <br>
 
     </div>
   <div  class="mainHolder" id="page2">
@@ -51,14 +109,15 @@
         <div class="div-block-3">
            <div class="dropdown">
 
-               <button class="dropbtntest">Telefoni&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""></button>
+               <button class="dropbtntest">Telefoni &nbsp&nbsp<span class="iconify" data-icon="cil:hamburger-menu" data-inline="false"></span></button>
                <div class="menuT1">
-
-                   <button type="button" class="applemenu phoneOption2" >Apple</button>
-                   <button type="button" class=" samsungmenu phoneOption2" >Samsung</button>
-                   <button type="button" class=" huaweimenu phoneOption2" >Huawei</button>
-                   <button type="button" class=" xiaomimenu phoneOption2" >Xiaomi</button>
-                   <button class="phoneOption2" onclick="mojaNaprava()" >Naprave ni na seznamu</button>
+<!-- <div class="centerit"> -->
+  <button type="button" class="applemenu phoneOption2" >Apple</button>
+  <button type="button" class=" samsungmenu phoneOption2" >Samsung</button>
+  <button type="button" class=" huaweimenu phoneOption2" >Huawei</button>
+  <button type="button" class=" xiaomimenu phoneOption2" >Xiaomi</button>
+  <button type="button" class="phoneOption2" onclick="mojaNaprava()" >Druga naprava</button>
+<!-- </div> -->
 
                  <div class="menuT2 menuApple">
 
@@ -80,17 +139,14 @@
        </div> -->
      </div>
        <div class="dropdown2">
-           <button class="dropbtntest2">Tablice&nbsp&nbsp&nbsp<img id="menuIcon" src="menuIcon2.png" alt=""></button>
+           <button class="dropbtntest2">Tablice &nbsp&nbsp<span class="iconify" data-icon="cil:hamburger-menu" data-inline="false"></span></button>
            <div class="menuT1t">
-           <button type="button" class="applemenuT phoneOption2" href="#">Apple</button>
-           <button type="button" class=" samsungmenuT phoneOption2"href="#">Samsung</button>
-           <button class="phoneOption2" onclick="mojaNaprava()">Naprave ni na seznamu</button>
+           <button type="button" class="applemenuT phoneOption2"  value="Apple">Apple</button>
+           <button type="button" class="phoneOption2" onclick="mojaNaprava()" value="Druga naprava">Druga Naprava</button>
            <div class="menuT2t menuAppleT">
 
            </div>
-           <div class="menuT2t menuSamsungT">
 
-           </div>
          </div>
       </div>
 
@@ -98,16 +154,22 @@
          </div>
         <!-- </div> -->
       <div class="phoneCard">
-        <!-- <div class="mojNaprava">
-          <h1>Če na seznamu ni vaše naprave lahko izpolnite desni obrazec.</h1>
-          <h2>V najkrajšem možnem času vam odgovorimo če vam napravo lahko popravimo</h2>
-        </div> -->
+
         <p id="beforePick">Izberi napravo iz zgornjega menija za ogled popravil in cen</p>
-        <div class="grid-item">
+        <div   class="grid-item V">
 
         </div>
-        <div class="phoneData">
-          <!-- <div class="mojNapravaForm">
+        <div  class="phoneData V">
+
+        </div>
+        <div class="grid-itemH H">
+          <div class="mojNaprava">
+            <h1>Če na seznamu ni vaše naprave lahko izpolnite desni obrazec.</h1>
+            <h2>V najkrajšem možnem času vam odgovorimo če vam napravo lahko popravimo</h2>
+          </div>
+        </div>
+        <div class="phoneDataH H">
+          <div class="mojNapravaForm">
             <form id="mojFon" >
               <div class='k2'>
                 <label class='formLabel' for='email'>Moj email:</label> <br>
@@ -118,18 +180,38 @@
                 <input required class='formInput' type='text'  name='phone' placeholder='Honor 10X Lite...'><br>
               </div>
                 <br>
+                <div class="k3">
+                  <label class="formLabel" for="fname">Ime:</label> <br>
+                  <input class="formInput" type="text" id="fname" name="fname" required>
+                </div>
+                <div class="k3">
+                  <label class="formLabel" for="lname">Priimek:</label> <br>
+                  <input class="formInput" type="text" id="lname" name="lname" required>
+                </div><br>
+                <div class='k3'>
+                  <label class='formLabel' for='address'>Ulica in hišna številka</label><br>
+                  <input class='formInput' type='text' id='address' name='address'>
+                </div>
+                <div class='k3'>
+                  <label class='formLabel' for='city'>Kraj</label><br>
+                  <input class='formInput' type='text' id='city' name='city' placeholder='Ljubljana'>
+                </div> <br>
+                <div class='k3'>
+                  <label class='formLabel' for='zip'>Poštna številka</label><br>
+                  <input class='formInput' type='number' id='zip' name='zip' placeholder='1000'>
+                </div>
               <div class='k2'>
                 <label class='formLabelLong' for='mailContent'>Potrebna popravila, zanimanja, opombe:</label>
                 <textarea required required class="textArea2"  form="mojFon" name="mailContent" rows="7" ></textarea>
               </div>
-            <br><br>
+            <br>
 
             <input class="submitForm2" type="submit" value="Pošlji povpraševanje">
             </form>
-          </div> -->
-
+          </div>
 
         </div>
+
       </div>
     </div>
     <!-- Trigger/Open The Modal -->
@@ -172,10 +254,12 @@
 
   <form id="narociloForm"  onSubmit="if(!confirm('Potrdite naročilo:')){return false;}">
   <h2>Naročilo na popravilo</h2>
-<input class="formRadio" type="radio" id="dostavaOsebno" name="dostava"  checked="checked">
+<input class="formRadio" type="radio" id="dostavaPosta" value="dostavaPosta" name="dostava" checked="checked" >
+<label class="formLabel" for="female">Napravo bom poslal po pošti (priporočeno)</label><br>
+<input class="formRadio" type="radio" id="dostavaOsebno" value="dostavaOsebno" name="dostava"  >
 <label class="formLabel" for="male">Napravo bom prinesel v poslovalnico</label><br>
-<input class="formRadio" type="radio" id="dostavaPosta" name="dostava" >
-<label class="formLabel" for="female">Napravo bom poslal po pošti</label><br>
+<input class="formRadio" type="radio" id="dostavaPrevzem" value="dostavaPrevzem" name="dostava"  >
+<label class="formLabel" for="male">Prevzem in dostava </label><span style="color:white"><i class="fas fa-info-circle infoTrig"></i><p class="infoTxt">Napravo prevzame kurir in vam jo po popravilu tudi dostavi nazaj.(Možno le na relaciji Brezno-Slovenj Gradec)</p></span> <br>
 <div>
   <label class="formLabel" for="fname">Ime:</label>
   <input class="formInput" type="text" id="fname" name="fname" required>
@@ -213,21 +297,7 @@
 
 </div>
 
-<div id="page4" class="modal-content2">
-  <span class="close2">&times;</span>
 
-  <div class="narociloInfo">
-
-    <div class="hvala">
-<h1>Hvala za naročilo :)</h1>
-    </div>
-    <div class="podatkiZigata">
-<h1>naslov za pošiljanje</h1>
-    </div>
-  </div>
-
-
-</div>
 
 </div>
 
@@ -241,13 +311,72 @@
    </div>
 </div> -->
 
+      <div id="page3" class="mainHolder4">
+<div class="kontaktInfo1">
+<h3 class="odkupHeader">Odkup Naprav</h3>
 
-      <div id="page3" class="mainHolder2">
+<p>Če želite prodati rabljeno ali poškodovano napravo izpolnite obrazec.</p>
+<p>V opis vključite stanje naprave, starost in morebitne težave naprave.</p>
+<p>V najkrajšem možnem času (V roku 24h) vam bomo na e-mail poslali ponudbo</p>
+</div>
+
+<div class="kontaktForm2">
+  <form action="/upload" method="post" id="mojFonOdkup" enctype="multipart/form-data" >
+    <div class='k2'>
+      <label class='formLabel' for='email'>Moj email:</label> <br>
+      <input required class='formInput' type='email'  name='email' placeholder='mojnaslov@gmail.com'>
+    </div>
+    <div class='k2'>
+      <label class='formLabel' for='myphone'>Vaša naprava:</label> <br>
+      <input required class='formInput' type='text'  name='phone' placeholder='Honor 10X Lite...'><br>
+    </div>
+      <br>
+    <div class='k2'>
+      <label class='formLabelLong' for='mailContent'>Sporočilo(stanje naprave, starost,morebitne tezave,zahtevana cena,..):</label>
+      <textarea required required class="textArea2"  form="mojFonOdkup" name="mailContent" rows="7" ></textarea>
+    </div>
+    <div class="k2c">
+      <input required="required"  accept="image/jpg, image/png, image/jpeg, image/png" onchange="readURL(this);" type="file" multiple="multiple" id="file" class="inputFile" name="file" />
+      <label id="inputfileLabel" class="inputfileLabel" for="file">Izberi slike<span class="uploadSPAN"> <i class="fas fa-upload"></i></span></label><br id="breakpoint">
+
+    </div>
+  <br><br>
+
+  <input class="submitForm2" type="submit" value="Pošlji ponudbo">
+  </form>
+</div>
+
+<!-- <div class="kontaktForm">
+<h3>Imate kakršno koli vprašanje?<br> Pošljite nam mail iz spodnjega obrazca</h3>
+<form id="sendOdkup" >
+  <div class='k'>
+    <label class='formLabel' for='email'>Vaš email naslov:</label> <br>
+    <input required class='formInput' type='email'  name='email' placeholder='janez@gmail.com'><br>
+  </div>
+  <div class='k'>
+    <label class='formLabel' for='title'>Naprava:</label> <br>
+    <input required class='formInput' type='text'  name='phonename' placeholder='iPhone7S...'><br>
+  </div> <br>
+  <div class='k'>
+    <label class='formLabel' for='title'>Sporočilo in stanje naprave:</label> <br>
+    <textarea required class="textArea"  form="sendMail" name="mailContent" rows="10" placeholder='...'></textarea>
+  </div>
+<br>
+
+<input class="submitForm2" type="submit" value="Pošlji sporočilo">
+</form>
+</div> -->
+
+      </div>
+
+
+      <div id="page4" class="mainHolder2">
 <div class="kontaktInfo">
-<h1>Kontakti podatki</h1>
+<h3 style="text-transform: uppercase;letter-spacing: 3px;">Kontakti podatki:</h3>
 <p>Tel: 031 337 356</p>
 <p>e-Mail: info@applefix.si</p>
 <h3>Naslov:</h3>
+<p>Applefix</p>
 <p>Gortinska cesta 106a</p>
 <p>2366 Muta</p>
 <h3>Sedež:</h3>
@@ -257,7 +386,7 @@
 </div>
 
 <div class="kontaktForm">
-<h3>Imate kakršno koli vprašanje?<br> Pošljite nam mail iz spodnjega obrazca</h3>
+<h3>Potrebujete dodatne informacije?<br> Kontaktirajte nas preko spodnjega obrazca ali preko telefona.</h3>
 <form id="sendMail" >
   <div class='k'>
     <label class='formLabel' for='email'>Vaš email naslov:</label> <br>
@@ -265,7 +394,7 @@
   </div>
   <div class='k'>
     <label class='formLabel' for='title'>Zadeva:</label> <br>
-    <input required class='formInput' type='text'  name='title' placeholder='...'><br>
+    <input required="required" class='formInput' type='text'  name='title' placeholder='...'><br>
   </div> <br>
   <div class='k'>
     <label class='formLabel' for='title'>Sporočilo:</label> <br>
@@ -280,20 +409,129 @@
 
 
       </div>
+
 <div class='hiddenPhoneName'>
   <input  type='text' id='FonIme' name='Imefona' form="narociloForm" value="" >
 </div>
 
 
     <script type="text/javascript">
+
+
+    var $sections = $(".section");
+    var page=1;
+    var pagg;
+    var enable= 1;
+
+
+    var uploadField = document.getElementById("file");
+
+    uploadField.onchange = function() {
+      console.log("TEST READURL");
+      $("#inputfileLabel").empty();
+      if (this.files.length == 1) {
+          $("#inputfileLabel").text("Dodali ste sliko");
+      } else if (this.files.length == 2) {
+          $("#inputfileLabel").text("Dodali ste 2 sliki");
+      } else if  (this.files.length == 3){
+          $("#inputfileLabel").text("Dodali ste "+this.files.length+" slike");
+      } else if  (this.files.length == 4){
+          $("#inputfileLabel").text("Dodali ste "+this.files.length+" slike");
+      } else  {
+          $("#inputfileLabel").text("Dodali ste "+this.files.length+" slik");
+      }
+ var dolzina = this.files.length;
+ var element = this.files;
+   $(".uploadImage").remove();
+ for (var i = 0; i < dolzina ; i++) {
+   if (element[0]) {
+
+ if (this.files && this.files[i]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+  $( "<img id='img"+i+"' class='uploadImage' src="+e.target.result+" alt=''>" ).insertAfter("#breakpoint");
+                };
+
+                reader.readAsDataURL(this.files[i]);
+            }
+          } else {
+            if (this.files && this.files[i]) {
+                           var reader = new FileReader();
+
+                           reader.onload = function (e) {
+ $( "<img id='img"+i+"' class='uploadImage' src="+e.target.result+" alt=''>" ).insertAfter("#img"+(i-1));
+                           };
+
+                           reader.readAsDataURL(this.files[i]);
+                       }
+                     }
+}
+            //----------------
+  //     if (this.files && this.files[0]) {
+  //               var reader = new FileReader();
+  //
+  //               reader.onload = function () {
+  //                   $(".uploadImage").remove();
+  //                 for (var i = 0; i < dolzina ; i++) {
+  //                   if (element[0]) {
+  //   $( "<img id='img"+i+"' class='uploadImage' src="+e.target.result+" alt=''>" ).insertAfter(".inputfileLabel");
+  // } else {
+  //     $( "<img id='img"+i+"' class='uploadImage' src="+e.target.result+" alt=''>" ).insertAfter("#img"+(i-1));
+  // }
+  //
+  //                 }
+  //
+  //               };
+  //
+  //               reader.readAsDataURL(this.files[0]);
+  //           }
+
+
+//- FILE SIZE CHECK
+      var fileSize = 0;
+      for(var i = 0; i<this.files.length;i++) {
+        fileSize = fileSize + Number(this.files[i].size);
+        // console.log(fileSize);
+        // console.log(this.files[i].size);
+      }
+        if( fileSize >= 25000000){
+           alert("File is too big!");
+           this.value = "";
+        };
+    };
+
+    $( "#facebook" ).click(function() {
+      window.open('https://www.facebook.com/AppleFixSlovenija/', '_blank');
+    });
+    $( ".phoneMenu" ).click(function() {
+      $(".phoneMenu").hide();
+      $("#facebook").hide();
+      $(".unleashMenu").css( "display", "flex" );
+      // $(".unleashMenu").show();
+      $( ".navButton" ).click(function() {
+        $(".phoneMenu").show();
+        $(".unleashMenu").hide();
+          $("#facebook").show();
+      });
+    });
+
+var form3;
     function mojaNaprava () {
+      $(".menuT1").hide();
+      $(".menuT1t").hide();
+
       $( "#beforePick" ).remove();
-      const textLevo = "<div class='mojNaprava'><h1>Če na seznamu ni vaše naprave lahko izpolnite desni obrazec.</h1>  <h2>V najkrajšem možnem času vam odgovorimo če vam napravo lahko popravimo</h2></div>";
-      const formaDesno ="<div class='mojNapravaForm'>             <form id='mojFon' >               <div class='k2'>                 <label class='formLabel' for='email'>Vaš email:</label> <br>                 <input required class='formInput' type='email'  name='email' placeholder='mojnaslov@gmail.com'>               </div>               <div class='k2'>                 <label class='formLabel' for='myphone'>Vaša naprava:</label> <br> <input required class='formInput' type='text'  name='phone' placeholder='Honor 10X Lite...'><br>               </div>                 <br>               <div class='k2'>                 <label class='formLabelLong' for='mailContent'>Potrebna popravila, zanimanja, opombe:</label>                 <textarea required required class='textArea2'  form='mojFon' name='mailContent' rows='7' ></textarea>               </div>             <br><br>             <input class='submitForm2' type='submit' value='Pošlji povpraševanje'></form></div>";
-      $(".grid-item").empty();
-      $(".phoneData").empty();
-      $( textLevo ).appendTo( ".grid-item" );
-      $( formaDesno ).appendTo( ".phoneData" );
+      // const textLevo = "<div class='mojNaprava'><h1>Če na seznamu ni vaše naprave lahko izpolnite desni obrazec.</h1>  <h2>V najkrajšem možnem času vam odgovorimo če vam napravo lahko popravimo</h2></div>";
+      // const formaDesno ="<div class='mojNapravaForm'>             <form id='mojFon'>               <div class='k2'>                 <label class='formLabel' for='email'>Vaš email:</label> <br>                 <input required class='formInput' type='email'  name='email' placeholder='mojnaslov@gmail.com'>               </div>               <div class='k2'>                 <label class='formLabel' for='myphone'>Vaša naprava:</label> <br> <input required class='formInput' type='text'  name='phone' placeholder='Honor 10X Lite...'><br>               </div>                 <br>               <div class='k2'>                 <label class='formLabelLong' for='mojFon'>Potrebna popravila, zanimanja, opombe:</label>                 <textarea required required class='textArea2'  form='mojFon' name='mailContent' rows='7' ></textarea>               </div>             <br><br>             <input class='submitForm2' type='submit' value='Pošlji povpraševanje'></form></div>";
+
+        // $(".grid-item").hide();
+      $(".V").hide();
+      $(".H").show();
+      // $( textLevo ).appendTo( ".grid-item" );
+      // $( formaDesno ).appendTo( ".phoneData" );
+         // form3 = $("#mojFon");
+         // console.log(form3);
     };
 
 
@@ -349,7 +587,7 @@ $(".menu-2").hide();
         console.log(response)
       })
 
-      var vsebinakonca = "  <span class='close'>&times;</span><div class='naslovZahvala'>     <h1>Hvala, vaše naročilo je bilo sprejeto.</h1>   </div>   <div class='podatkiZahvala'>     <h2>Na mail boste najkasneje v roku 10ih ur prejeli potrditev naročila in dodatne informacije o terminu in načinu dostave.</h2><br><br> ";
+      var vsebinakonca = "  <span class='close'>&times;</span><div class='naslovZahvala'>     <h1>Hvala, vaše naročilo je bilo sprejeto.</h1>   </div>   <div class='podatkiZahvala'>   <h2>Na posredovani e-mail naslov boste v roku 24h prejeli potrditev naročila in vse potrebne informacije glede terminov popravila in načinu dostave.</h2><br> <h2>Če se s popravilom mudi, smo vedno doesgljivi preko telefona: 031 337 356</h2><br></div> ";
 
           $( ".modal-content" ).empty();
 
@@ -379,12 +617,13 @@ function submitHandler2 (e) {
 
 }
 // MAIL POST ------------
-const $form3 = $('#mojFon')
+
+const $form3 = $('#mojFon');
 
 $form3.on('submit', submitHandler3)
-
 function submitHandler3 (e) {
-  e.preventDefault()
+  e.preventDefault();
+
 
   $.ajax({
     url: '/mojFon',
@@ -394,15 +633,34 @@ function submitHandler3 (e) {
     console.log(response)
   })
 
-  $( ".phoneCard" ).empty();
-  $( "<h1>Povpraševanje je bilo poslano</h1>" ).appendTo( ".phoneCard" );
+  $( ".H" ).empty();
+  $( "<h1>Povpraševanje je bilo poslano</h1>" ).appendTo( ".phoneDataH" );
 
 }
+//-- odkup post
+// const $form4 = $('#mojFonOdkup');
+// $form4.on('submit', submitHandler4)
+//
+// function submitHandler4 (e) {
+//   // e.preventDefault();
+//
+//   $.ajax({
+//     url: '/mojFonOdkup',
+//     type:'POST',
+//     data: $form4.serialize()
+//   }).done(response => {
+//     console.log(response)
+//   })
+//
+//   $( ".phoneCard" ).empty();
+//   $( "<h1>Povpraševanje je bilo poslano</h1>" ).appendTo( ".phoneCard" );
+//
+// }
 
 
 
 // --------- Ko izbereš različno dostavo so required različne stvari
-      $(".kek").css( "display", "none" );
+      $(".kek").css( "display", "inline-block" );
         $('#narociloForm').click(function() {
 
        if($('#dostavaOsebno').is(':checked')) {
@@ -427,6 +685,8 @@ function submitHandler3 (e) {
     function tester2 () {
      console.log("TESTSTTSST");
      modal.style.display = "block";
+     html.css( "display", "inline-block" );
+     enable= 0;
     };
 
     // Get the button that opens the modal
@@ -451,12 +711,14 @@ function submitHandler3 (e) {
 
   $(".close").click(function () {
     modal.style.display = "none";
+    enable = 1;
   });
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
+      enable = 1;
     }
   }
 
@@ -494,7 +756,7 @@ else if(test[i].phoneBrand == "xiaomi") {
       vsebinaSamsungT = "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)'>"+tablice[i].tabletName+"</button>";
       }
    };
-
+vsebinaApple += "<button  id='dropdown-cnt' class='phoneOption' type='button' name='"+i+"' onclick='getVsebina(this)'>Druga naprava</button>";
 
     $(".menuApple").append(vsebinaApple);
     $(".menuSamsung").append(vsebinaSamsung);
@@ -508,7 +770,8 @@ else if(test[i].phoneBrand == "xiaomi") {
     function getVsebina (x) {
 
       $(".menuT1").hide();
-
+      $(".H").hide();
+      $(".V").show();
 
        $( ".phoneData" ).empty();
        $( ".grid-item" ).empty();
@@ -527,14 +790,16 @@ else if(test[i].phoneBrand == "xiaomi") {
             infoo += "<h2>"+test[x.name].phoneName+" </h2>";
             infoo2 += "<h3>"+test[x.name].phoneName+" </h3><h3>Izberi potrebna popravila:</h3>";
           };
-        infoo += "<p>"+test[x.name].fixTypes[i]+" : "+test[x.name].phonePrice[i]+"€</p>";
+        infoo += "<p>"+test[x.name].fixTypes[i]+": "+test[x.name].phonePrice[i]+" €</p>";
         infoo2 += "<input type='checkbox' value='"+test[x.name].fixTypes[i]+"' id='"+test[x.name].fixTypes[i]+"' name='popravilo' form='narociloForm'>";
-        infoo2 += "<label for='popravilo1'>"+test[x.name].fixTypes[i]+"</label><br>";
+        infoo2 += "<label for='popravilo1'>"+test[x.name].fixTypes[i]+": "+test[x.name].phonePrice[i]+"€</label><br>";
       }
       infoo += "<button id='narociPopravilo' class='btn-two' type='button' onclick='tester2()'>Naroči popravilo</button>";
       //"background-image", "url('"+test[x.name].phonePic+"')"
       $(".grid-item").append("<img id='phonePicID' src='"+test[x.name].phonePic+"' >");
       $(".grid-item2").append("<img id='phonePicID' src='"+test[x.name].phonePic+"' >");
+      infoo2 += "<input type='checkbox' value='Drugo...' id='drugo' name='popravilo' form='narociloForm'>";
+      infoo2 += "<label for='popravilo1'>Drugo...  </label><span style='color:white'><i class='fas fa-info-circle infoTrig2'></i><p class='infoTxt2'>Željena popravila, ki niso na seznamu dodajte med opombe</p><br>";
 
       $(".phoneData").append(infoo);
       $(".phoneData2").append(infoo2);
@@ -542,6 +807,8 @@ else if(test[i].phoneBrand == "xiaomi") {
     };
     function getVsebina2 (x) {
       $(".menuT1t").hide();
+      $(".H").hide();
+      $(".V").show();
        $( ".phoneData" ).empty();
        $( ".grid-item" ).empty();
        $( ".phoneData2" ).empty();
@@ -559,15 +826,16 @@ else if(test[i].phoneBrand == "xiaomi") {
               infoo += "<h3>"+tablice[x.name].tabletName+" </h3>";
               infoo2 += "<h2>"+tablice[x.name].tabletName+" </h2><h3>Izberi potrebna popravila:</h3>";
             };
-          infoo += "<p>"+tablice[x.name].fixTypes[i]+" : "+tablice[x.name].phonePrice[i]+"€</p><br>";
+          infoo += "<p>"+tablice[x.name].fixTypes[i]+": "+tablice[x.name].phonePrice[i]+" €</p>";
           infoo2 += "<input type='checkbox' value='"+tablice[x.name].fixTypes[i]+"' id='"+tablice[x.name].fixTypes[i]+"' name='popravilo' form='narociloForm'>";
-          infoo2 += "<label for='popravilo1'>"+tablice[x.name].fixTypes[i]+"</label><br>";
+          infoo2 += "<label for='popravilo1'>"+tablice[x.name].fixTypes[i]+": "+test[x.name].phonePrice[i]+"€</label><br>";
         }
         infoo += "<button id='narociPopravilo' class='btn-two' type='button' onclick='tester2()'>Naroči popravilo</button>";
         //"background-image", "url('"+tablice[x.name].phonePic+"')"
         $(".grid-item").append("<img id='phonePicID' src='"+tablice[x.name].tabletPic+"' >");
         $(".grid-item2").append("<img id='phonePicID' src='"+tablice[x.name].tabletPic+"' >");
-
+        infoo2 += "<input type='checkbox' value='Drugo...' id='drugo' name='popravilo' form='narociloForm'>";
+        infoo2 += "<label for='popravilo1'>Drugo...  </label><span style='color:white'><i class='fas fa-info-circle infoTrig2'></i><p class='infoTxt2'>Željena popravila, ki niso na seznamu dodajte med opombe</p><br>";
         $(".phoneData").append(infoo);
         $(".phoneData2").append(infoo2);
 
@@ -587,13 +855,33 @@ else if(test[i].phoneBrand == "xiaomi") {
     // <input type="checkbox" id="popravilo2" name="popravilo2" form="narociloForm">
     // <label for="popravilo2">Menjava Baterije</label><br>
     // Collecting the sections
+    $( "#buton1" ).click(function() {
+      page = 1;
+    });
+    $( "#buton2" ).click(function() {
+      page = 2;
+    });
+    $( "#buton3" ).click(function() {
+      page = 3;
+    });
+    $( "#buton4" ).click(function() {
+      page = 4;
+    });
 
-    var $sections = $(".section");
-    var page=1;
-    var pagg;
-    var enable= 1;
+// if( ($(window).width() > 600) ) {
+//   setTimeout(function () {
+//       var viewheight = $(window).height();
+//       var viewwidth = $(window).width();
+//       var viewport = $("meta[name=viewport]");
+//       viewport.attr("content", "height=" + viewheight + "px, width=" +
+//       viewwidth + "px, initial-scale=1.0");
+//   }, 300);
+// }
+
+
+
     // Define wheel event handler
-    if ( $(window).width() > 600 ) {
+    if ( ($(window).width() > 600) || (enable==1) ) {
     document.addEventListener(
       "wheel",
       function(event) {
@@ -602,7 +890,7 @@ else if(test[i].phoneBrand == "xiaomi") {
           var direction = event.deltaY;
 
           if (direction > 0) {
-            if (page>=3){
+            if (page>=4){
 
             } else {
               page=page+1;
@@ -624,7 +912,7 @@ pagg += page;
           scrollTop: $(pagg).offset().top
       },10);
         enable=0;
-        setTimeout(function() {enable=1;}, 200);
+        setTimeout(function() {enable=1;}, 400);
 
       console.log(page);
       },
